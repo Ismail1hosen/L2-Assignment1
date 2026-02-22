@@ -1,0 +1,17 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.hero-section{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.6), /* Opore kalo ronge (60% opacity) */
+        rgba(0, 0, 0, 0.6)  /* Nicheo kalo ronge (60% opacity) */
+      ), 
+      url('/Assets/banner-image.png');
+    /* background-image: url('/Assets/banner-image.png'); */
+    height: 500px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

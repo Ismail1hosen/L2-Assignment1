@@ -1,63 +1,4 @@
-// 1. Arrow function to load data
-// const loadProducts = async () => {
 
-//     const url = `https://fakestoreapi.com/products`
-
-//     try {
-//         const response = await fetch(url);
-//         const products = await response.json();
-//         displayProducts(products);
-//     } catch (error) {
-//         console.error("Error fetching products:", error);
-//     }
-// };
-
-// 2. Arrow function to display data
-// const displayProducts = (products) => {
-//     const container = document.getElementById('product-container');
-//     container.innerHTML = ""; // Age purono data thakle clear korbe
-
-//     products.forEach(product => {
-//         const card = document.createElement('div');
-//         card.className = "card bg-base-100 shadow-sm border border-gray-100";
-
-//         card.innerHTML = `
-//           <figure class="px-4 pt-4">
-//             <img src="${product.image}" alt="${product.title}" class="h-48 object-contain w-full" />
-//           </figure>
-//           <div class="card-body">
-//             <div class="flex justify-between items-center text-xs font-bold">
-//               <span class="bg-gray-200 rounded-full px-2 py-1">${product.category}</span>
-//               <span><span class="text-yellow-400"><i class="fa-solid fa-star"></i></span> ${product.rating.rate} (${product.rating.count})</span>
-//             </div>
-//             <p class="font-bold text-sm h-12 overflow-hidden">${product.title}</p>
-//             <p class="font-bold text-xl">$${product.price}</p>
-//             <div class="card-actions flex justify-between py-2">
-//               <button class="btn btn-outline btn-sm">Details</button>
-//               <button class="btn btn-outline btn-primary btn-sm">Add to Cart</button>
-//             </div>
-//           </div>
-//         `;
-//         container.appendChild(card);
-//     });
-// };
-
-// Page load hole function-ti call korun
-// loadProducts();
-
-// (
-//         <figure class="px-4 pt-4">
-//             <img src="${product.image}" class="h-40 object-contain w-full" />
-//           </figure>
-//           <div class="card-body p-4">
-//             <p class="text-xs font-bold text-gray-400">${product.category.toUpperCase()}</p>
-//             <h2 class="font-bold text-sm h-10">${product.title.slice(0, 30)}...</h2>
-//             <p class="font-bold text-lg">$${product.price}</p>
-//             <div class="card-actions">
-//               <button class="btn btn-primary btn-sm w-full">Add to Cart</button>
-//             </div>
-//           </div>
-//     )
 
 //to show loading spinner when click lesson button
 const manageSpinner = (status) => {
@@ -75,6 +16,7 @@ let allProductsData = [];
 
 // 1. Initial Load: Page load hole shob product niye ashbe
 const loadProducts = async () => {
+    manageSpinner(true);
     const url = ('https://fakestoreapi.com/products')
     const res = await fetch(url);
     allProductsData = await res.json();
@@ -119,7 +61,9 @@ const displayProducts = (products) => {
           
         `;
         container.appendChild(card);
+        
     });
+    manageSpinner(false);
 };
 
 // 3. Filter and Active Button Logic
